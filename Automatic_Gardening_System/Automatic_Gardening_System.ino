@@ -1,12 +1,12 @@
 
-// AUTOMATIC IRRIGATION SYSTEM 
+// AUTOMATIC IRRIGATION SYSTEM.
 
-#include <LiquidCrystal.h> //LCD Library
+#include <LiquidCrystal.h> //LCD Library.
 int temp;
 int T_Sensor = A1;
-int M_Sensor = A0;  
+int M_Sensor = A0;
 int val; 
-int cel; //Temprature values conversion to celsius scale
+int cel; //Temprature values conversion to celsius scale.
 
 LiquidCrystal lcd(8, 7, 4, 3, 2, 1);
 
@@ -43,13 +43,13 @@ void loop()
      lcd.print("*C");
  */
 
-   int Moisture = analogRead(M_Sensor); //Read Moisture Sensor Value
+   int Moisture = analogRead(M_Sensor); //Read Moisture Sensor Value.
    Serial.println(Moisture);
- if (Moisture> 200)   // for dry soil
+ if (Moisture> 200)   // for dry soil.
   { 
         lcd.setCursor(0,0);
         lcd.print("DRY SOIL");
-       if (digitalRead(11)==1) //test the availability of water in storage USING WATER LEVELL INDICATOR
+       if (digitalRead(11)==1) //test the availability of water in storage USING WATER LEVELL INDICATOR.
        {
         digitalWrite(12, HIGH);//Relay is on and pump gets on
         lcd.setCursor(0,1);
@@ -57,7 +57,7 @@ void loop()
        }
        else
        {
-        digitalWrite(12, LOW);//WATER WILL NOT PUMP OUT OF NO WATER IS IN SUPPLY CONTAINER
+        digitalWrite(12, LOW);//WATER WILL NOT PUMP OUT OF NO WATER IS IN SUPPLY CONTAINER.
         lcd.setCursor(0,1);
         lcd.print("PUMP:OFF");
         lcd.setCursor(11,0);
@@ -67,7 +67,7 @@ void loop()
        }
     }
  
-if (Moisture>= 70 && Moisture<=200) //for Moist Soil
+if (Moisture>= 70 && Moisture<=200) //for Moist Soil.
     { 
       lcd.setCursor(0,0);
      lcd.print("MOIST SOIL");
@@ -78,7 +78,7 @@ if (Moisture>= 70 && Moisture<=200) //for Moist Soil
      lcd.print("PUMP:OFF");    
     }
  
-if (Moisture < 70)  // For Soggy soil
+if (Moisture < 70)  // For Soggy soil.
   { 
     lcd.setCursor(0,0);
      lcd.print("SOGGY SOIL");
