@@ -8,9 +8,10 @@ int M_Sensor = A0;
 int val; 
 int cel; //Temprature values conversion to celsius scale.
 
+//these are the port pins to be connected to the lcd panel
 LiquidCrystal lcd(8, 7, 4, 3, 2, 1);
 
-
+//setting up the ports and circuit
 void setup()
  {
     lcd.begin(16, 2);
